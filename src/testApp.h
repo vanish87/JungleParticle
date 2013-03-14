@@ -24,9 +24,13 @@ public:
 	void	windowResized( int w, int h );
 	
 protected:
+
+	ofVec3f sphere_pos_;
+	ofVec3f sphere_acc_;
+	ofVec3f sphere_vol_;
 	
 	ofxParticleEmitter		m_emitter;
-	
+	float angle_;
 };
 
 #endif

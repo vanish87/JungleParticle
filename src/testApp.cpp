@@ -12,6 +12,10 @@ void testApp::setup()
 	{
 		ofLog( OF_LOG_ERROR, "testApp::setup() - failed to load emitter config" );
 	}
+
+	sphere_pos_.set(300, 300, 0);
+	sphere_acc_.set(0, 0, 0);
+	sphere_vol_.set(0, 0, 0);
 }
 
 //--------------------------------------------------------------
@@ -23,7 +27,25 @@ void testApp::exit()
 //--------------------------------------------------------------
 void testApp::update()
 {
+	if(sphere_acc_.x > 0)
+		sphere_acc_.x -= 0.1;
+	else
+	{
+		if(sphere_acc_.x < 0)
+			sphere_acc_.x += 0.1;
+	}
+	if(sphere_acc_.y > 0)
+		sphere_acc_.y -= 0.1;
+	else
+	{
+		if(sphere_acc_.y < 0)
+			sphere_acc_.y += 0.1;
+	}
+	sphere_pos_.x = ofClamp(sphere_pos_.x, 50, ofGetWindowWidth()-50);
+	sphere_pos_.y = ofClamp(sphere_pos_.y, 50, ofGetWindowHeight()-50);
 	m_emitter.update();
+	sphere_vol_ += sphere_acc_;
+	sphere_pos_+= sphere_acc_;
 }
 
 //--------------------------------------------------------------
@@ -33,6 +55,13 @@ void testApp::draw()
 	
 	ofSetColor( 255, 255, 255 );
 	ofDrawBitmapString( "fps: " + ofToString( ofGetFrameRate(), 2 ), 20, 20 );
+	
+	ofDrawBitmapString(ofToString(angle_), 20, 40);
+
+	ofPushMatrix();
+	ofTranslate(sphere_pos_.x, sphere_pos_.y, sphere_pos_.z);
+	ofSphere(20);
+
 }
 
 
@@ -59,6 +88,15 @@ void testApp::mouseDragged(int x, int y, int button)
 {
 	m_emitter.sourcePosition.x = x;
 	m_emitter.sourcePosition.y = y;
+
+	ofVec3f dir = ofVec3f(x, y, 0)- ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY(), 0);
+	dir.normalize();	
+	angle_ = dir.angle(ofVec3f(1,0,0));
+	if(dir.y >=  0) angle_+=180;
+	m_emitter.angle = angle_;
+
+	if(ofVec3f(x, y, 0).distance(sphere_pos_) < 50)
+		sphere_acc_+= dir;
 }
 
 //--------------------------------------------------------------
