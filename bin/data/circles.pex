@@ -4,7 +4,7 @@
 <sourcePositionVariance x="7" y="7"></sourcePositionVariance>
 <speed value="20"></speed>
 <speedVariance value="5"></speedVariance>
-<particleLifeSpan value="10"></particleLifeSpan>
+<particleLifeSpan value="5"></particleLifeSpan>
 <particleLifespanVariance value="1"></particleLifespanVariance>
 <angle value="360.00"></angle>
 <angleVariance value="360.00"></angleVariance>
@@ -13,22 +13,15 @@
 <tangentialAcceleration value="0.00"></tangentialAcceleration>
 <radialAccelVariance value="0.00"></radialAccelVariance>
 <tangentialAccelVariance value="0.00"></tangentialAccelVariance>
-
-
 <startColor red="0.00" green="0.29" blue="1.00" alpha="0.10"></startColor>
-<startColorVariance red="0.10" green="0.10" blue="0.10" alpha="0.00"></startColorVariance>
-
-<finishColor red="1.00" green="0.88" blue="0.37" alpha="0.10"></finishColor>
-<finishColorVariance red="0.20" green="0.20" blue="0.20" alpha="0.00"></finishColorVariance>
-
-
-
-
+<startColorVariance red="1.00" green="0.88" blue="0.37" alpha="0.10"></startColorVariance>
+<finishColor red="0.20" green="0.20" blue="0.20" alpha="0.10"></finishColor>
+<finishColorVariance red="0.20" green="0.20" blue="0.20" alpha="0.10"></finishColorVariance>
 <maxParticles value="2000"></maxParticles>
-<startParticleSize value="2.00"></startParticleSize>
-<startParticleSizeVariance value="1.00"></startParticleSizeVariance>
-<finishParticleSize value="5.00"></finishParticleSize>
-<FinishParticleSizeVariance value="1.00"></FinishParticleSizeVariance>
+<startParticleSize value="9.00"></startParticleSize>
+<startParticleSizeVariance value="2.00"></startParticleSizeVariance>
+<finishParticleSize value="12.00"></finishParticleSize>
+<FinishParticleSizeVariance value="2.00"></FinishParticleSizeVariance>
 <duration value="-1.00"></duration>
 <emitterType value="0"></emitterType>
 <maxRadius value="10.00"></maxRadius>
@@ -38,5 +31,7 @@
 <rotatePerSecondVariance value="0.00"></rotatePerSecondVariance>
 <blendFuncSource value="770"></blendFuncSource>
 <blendFuncDestination value="772"></blendFuncDestination>
+
+
 
 </particleEmitterConfig>
