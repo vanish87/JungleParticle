@@ -17,6 +17,7 @@
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		BC15384116F10DFC00023C7D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC15383E16F10DFC00023C7D /* main.cpp */; };
 		BC15384216F10DFC00023C7D /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC15383F16F10DFC00023C7D /* testApp.cpp */; };
+		BCA5549D17011D7E00CB38F2 /* WindParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCA5549B17011D7E00CB38F2 /* WindParticle.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -79,6 +80,8 @@
 		BC15383E16F10DFC00023C7D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BC15383F16F10DFC00023C7D /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		BC15384016F10DFC00023C7D /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
+		BCA5549B17011D7E00CB38F2 /* WindParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindParticle.cpp; sourceTree = "<group>"; };
+		BCA5549C17011D7E00CB38F2 /* WindParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindParticle.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -234,6 +237,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BCA5549B17011D7E00CB38F2 /* WindParticle.cpp */,
+				BCA5549C17011D7E00CB38F2 /* WindParticle.h */,
 				BC15383E16F10DFC00023C7D /* main.cpp */,
 				BC15383F16F10DFC00023C7D /* testApp.cpp */,
 				BC15384016F10DFC00023C7D /* testApp.h */,
@@ -364,6 +369,7 @@
 				71db60a9365815d9274a698302478163 /* ofxParticleEmitter.cpp in Sources */,
 				BC15384116F10DFC00023C7D /* main.cpp in Sources */,
 				BC15384216F10DFC00023C7D /* testApp.cpp in Sources */,
+				BCA5549D17011D7E00CB38F2 /* WindParticle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

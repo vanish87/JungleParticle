@@ -4,12 +4,15 @@
 
 #include "ofMain.h"
 #include "ofxParticleEmitter.h"
+#include "WindParticle.h"
 
 class testApp : public ofBaseApp
 {
 	
 public:
-	
+	testApp();
+	~testApp();
+
 	void	setup();
 	void	update();
 	void	draw();
@@ -26,11 +29,23 @@ public:
 protected:
 
 	ofVec3f sphere_pos_;
+	int next_index_;
 	ofVec3f sphere_acc_;
 	ofVec3f sphere_vol_;
+
+	ofVec3f org_pos_;
+	ofVec3f pre_pos_;
+	ofVec3f f_dir_;
+	float mass_;
+	float x0_;
+	float k_;
+	float frac_para_;
+
 	
 	ofxParticleEmitter		m_emitter;
 	float angle_;
+
+	vector<WindParticle> wind_;
 };
 
 #endif
