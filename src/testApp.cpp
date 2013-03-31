@@ -1,8 +1,8 @@
 #include "testApp.h"
 
-static int NUM_PARTICLE = 100;
-static const int MAX_PARTICLE = 150;
-static const int MIN_PARTICLE = 100;
+static int NUM_PARTICLE = 250;
+static const int MAX_PARTICLE = 300;
+static const int MIN_PARTICLE = 200;
 testApp::testApp()
 {
 
@@ -17,7 +17,7 @@ testApp::~testApp()
 void testApp::setup()
 {
 	ofSetWindowTitle( "particle example" );
-	ofBackground( 0, 0, 0 );
+	ofBackground( 0, 0, 0 ); //why doesn't it work with a white background?
 	ofSetFrameRate( 60 );
 	
 	if ( !m_emitter.loadFromXml( "circles.pex" ) )
@@ -30,10 +30,10 @@ void testApp::setup()
 	sphere_vol_.set(0, 0, 0);
 	next_index_ = 0;
 
-	x0_ = 50;
-	k_ = 0.5;
-	mass_ = 10;
-	frac_para_ = 10; 
+	x0_ = 0;
+	k_ = 0;
+	mass_ = 0;
+	frac_para_ = 0;
 
 	for (int i = 0; i < NUM_PARTICLE; ++i)
 	{
@@ -152,7 +152,7 @@ void testApp::draw()
 {
 	m_emitter.draw( 0, 0 );
 	
-	ofSetColor( 255, 255, 255 );
+	ofSetColor( 0, 0, 0 ); // 255 255 255
 	ofDrawBitmapString( "fps: " + ofToString( ofGetFrameRate(), 2 ), 20, 20 );
 	
 	ofDrawBitmapString("acc "+ ofToString(sphere_acc_.x) + " " + ofToString(sphere_acc_.y), 20, 40);
@@ -160,22 +160,27 @@ void testApp::draw()
 	ofDrawBitmapString("particle num "+ ofToString(NUM_PARTICLE), 20, 80);
 
 	ofPushMatrix();
-	ofSetColor( 255, 0, 0 );
-	ofTranslate(300,300,0);
-	ofSphere(50);
+	ofSetColor( 255, 0, 0 ); //color object
+	ofTranslate(300,300,0); //location object
+	ofSphere(50); //size object
 	ofPopMatrix();
 
 	ofPushMatrix();
 	for(int i = 0; i < NUM_PARTICLE; ++i)
 	{
-		//ofSetColor(2.55*i,2.55*i,2.55*i,1);
+//		ofSetColor(2.55*i,2.55*i,2.55*i,1);
 		wind_[i].Simulate(0);
 	}
 // 	ofTranslate(sphere_pos_.x, sphere_pos_.y, sphere_pos_.z);
 // 	ofSphere(20);
 	ofPopMatrix();
-
-	ofSetColor( 255, 0, 0 );
+    ofEnableAlphaBlending(); //neu
+//
+	ofSetColor(255, 226, 141, 20); //color particles //added alpha
+    
+    ofDisableAlphaBlending(); //neu
+    
+//    (255-j*5, 226+j*5, 141+j*5);
 
 }
 

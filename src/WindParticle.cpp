@@ -9,10 +9,10 @@ WindParticle::WindParticle(void)
 	acc_.set(0, 0, 0);
 	vol_.set(0, 0, 0);
 
-	x0_ = 50 * ofRandom(0.5,1);
-	k_ = 0.5* ofRandom(0.3,1);;
-	mass_ = 10* ofRandom(0.6,1);;
-	frac_para_ = 10* ofRandom(0.5,1);; 
+	x0_ = 60 * ofRandom(0.5,1);
+	k_ = 0.3* ofRandom(0.3,1);;
+	mass_ = 5* ofRandom(0.6,1);;
+	frac_para_ = 50* ofRandom(0.5,1);;
 }
 
 WindParticle::WindParticle( ofVec3f pos )
@@ -23,8 +23,8 @@ WindParticle::WindParticle( ofVec3f pos )
 	acc_.set(0, 0, 0);
 	vol_.set(ofRandomf(), ofRandomf(), 0);
 
-	x0_ = 50 * ofRandom(0.5,1);
-	k_ = 0.5* ofRandom(0.3,1);;
+	x0_ = 100 * ofRandom(0.5,1);
+	k_ = 0.001* ofRandom(0.3,1);;
 	mass_ = 10* ofRandom(0.6,1);;
 	frac_para_ = 10* ofRandom(0.5,1);; 
 }
@@ -72,10 +72,12 @@ void WindParticle::Simulate( float delta_time )
 	pos_.y = ofClamp(pos_.y, 50, 768-50);
 
 
-	ofSetColor( 255, 255, 255 );
+	ofSetColor( 0, 74, 255 );
+//    (0+i*5, 74+i*5, 255-i*5);
+    
 	ofPushMatrix();
 	ofTranslate(pos_.x, pos_.y, 0.0f);
-	ofSphere(10);
+	ofSphere(3); //size of particles
 	ofPopMatrix();
 }
 
