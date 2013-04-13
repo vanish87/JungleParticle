@@ -26,7 +26,7 @@ WindParticle::WindParticle( ofVec3f pos )
 	x0_ = 100 * ofRandom(0.5,1);
 	k_ = 0.001* ofRandom(0.3,1);;
 	mass_ = 10* ofRandom(0.6,1);;
-	frac_para_ = 10* ofRandom(0.5,1);; 
+	frac_para_ = 1* ofRandom(0.5,1);; 
 }
 
 
@@ -77,7 +77,7 @@ void WindParticle::Simulate( float delta_time )
     
 	ofPushMatrix();
 	ofTranslate(pos_.x, pos_.y, 0.0f);
-	ofSphere(3); //size of particles
+	ofCircle(0, 0, 3); //size of particles
 	ofPopMatrix();
 }
 

@@ -46,6 +46,21 @@ protected:
 	float angle_;
 
 	vector<WindParticle> wind_;
+    
+    
+    
+    ofVec3f hand_pos_;
+    ofVec3f hand_vel_;
+    float hand_radius_;
+    float hand_mass_;
+    
+    ofVec3f butterfly_pos_;
+    ofVec3f butterfly_vel;
+    float butterfly_radius_;
+    float butterfly_mass_;
+    
+    
+    
 };
 
 #endif

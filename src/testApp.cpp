@@ -16,10 +16,22 @@ testApp::~testApp()
 //--------------------------------------------------------------
 void testApp::setup()
 {
+    
 	ofSetWindowTitle( "particle example" );
 	ofBackground( 0, 0, 0 ); //why doesn't it work with a white background?
 	ofSetFrameRate( 60 );
 	
+    hand_pos_.set(200,200,0);
+    hand_vel_.set(0,0,0);
+    hand_radius_ = 50;
+    hand_mass_ = 1;
+    
+    butterfly_pos_.set(350, 350,0);
+    butterfly_vel.set(0, 0, 0);
+    butterfly_radius_ = 50;
+    butterfly_mass_ = 1;
+    
+    /*
 	if ( !m_emitter.loadFromXml( "circles.pex" ) )
 	{
 		ofLog( OF_LOG_ERROR, "testApp::setup() - failed to load emitter config" );
@@ -40,6 +52,7 @@ void testApp::setup()
 		WindParticle particle;
 		wind_.push_back(particle);
 	}
+     */
 }
 
 //--------------------------------------------------------------
@@ -51,6 +64,16 @@ void testApp::exit()
 //--------------------------------------------------------------
 void testApp::update()
 {		
+    
+    if(hand_pos_.distance(butterfly_pos_)<hand_radius_+butterfly_radius_)
+    {
+        
+        hand_vel_ = hand_pos_ - ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY(), 0);
+        butterfly_vel = (hand_vel_ * hand_mass_ + butterfly_vel * butterfly_mass_) / butterfly_mass_;
+    }
+    
+    
+    /*
 	org_pos_= ofVec3f(ofGetMouseX(),ofGetMouseY(),0);
 	float ep = 0.1;
 	if(-ep <= sphere_acc_.x && sphere_acc_.x <= ep)
@@ -91,7 +114,7 @@ void testApp::update()
 		wind_path_.erase(wind_path_.begin());
 		if(next_index_ == wind_path_.size())
 			next_index_ = wind_path_.size() - 1;
-	}*/
+	}
 
 	f_dir_  = org_pos_ - sphere_pos_;
 
@@ -145,12 +168,26 @@ void testApp::update()
 
 	
 	pre_pos_ = org_pos_;
+    */
 }
 
 //--------------------------------------------------------------
 void testApp::draw()
 {
-	m_emitter.draw( 0, 0 );
+    
+    ofPushMatrix();
+    ofTranslate(hand_pos_.x, hand_pos_.y, hand_pos_.z);
+    ofSphere(0, 0, 0, hand_radius_);
+    ofPopMatrix();
+    
+    
+    ofPushMatrix();
+    ofTranslate(butterfly_pos_.x, butterfly_pos_.y, butterfly_pos_.z);
+    ofSphere(0, 0, 0, butterfly_radius_);
+    ofPopMatrix();
+    
+    
+	/*m_emitter.draw( 0, 0 );
 	
 	ofSetColor( 0, 0, 0 ); // 255 255 255
 	ofDrawBitmapString( "fps: " + ofToString( ofGetFrameRate(), 2 ), 20, 20 );
@@ -181,6 +218,7 @@ void testApp::draw()
     ofDisableAlphaBlending(); //neu
     
 //    (255-j*5, 226+j*5, 141+j*5);
+     */
 
 }
 
@@ -204,6 +242,9 @@ void testApp::mouseMoved(int x, int y )
 	// nothing	
 
 	//cout<<f_dir_.x<<" "<<f_dir_.y<<"\r";
+    
+    hand_pos_.x = x;
+    hand_pos_.y = y;
 	
 }
 
