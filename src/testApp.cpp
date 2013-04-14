@@ -31,13 +31,13 @@ void testApp::setup()
     butterfly_radius_ = 50;
     butterfly_mass_ = 1;
     
-    /*
+    
 	if ( !m_emitter.loadFromXml( "circles.pex" ) )
 	{
 		ofLog( OF_LOG_ERROR, "testApp::setup() - failed to load emitter config" );
 	}
 
-	sphere_pos_.set(300, 300, 0);
+/*	sphere_pos_.set(300, 300, 0);
 	sphere_acc_.set(0, 0, 0);
 	sphere_vol_.set(0, 0, 0);
 	next_index_ = 0;
@@ -63,14 +63,8 @@ void testApp::exit()
 
 //--------------------------------------------------------------
 void testApp::update()
-{		
-    
-    if(hand_pos_.distance(butterfly_pos_)<hand_radius_+butterfly_radius_)
-    {
-        
-        hand_vel_ = hand_pos_ - ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY(), 0);
-        butterfly_vel = (hand_vel_ * hand_mass_ + butterfly_vel * butterfly_mass_) / butterfly_mass_;
-    }
+{
+    m_emitter.update();
     
     
     /*
@@ -175,7 +169,7 @@ void testApp::update()
 void testApp::draw()
 {
     
-    ofPushMatrix();
+    /*ofPushMatrix();
     ofTranslate(hand_pos_.x, hand_pos_.y, hand_pos_.z);
     ofSphere(0, 0, 0, hand_radius_);
     ofPopMatrix();
@@ -184,12 +178,12 @@ void testApp::draw()
     ofPushMatrix();
     ofTranslate(butterfly_pos_.x, butterfly_pos_.y, butterfly_pos_.z);
     ofSphere(0, 0, 0, butterfly_radius_);
-    ofPopMatrix();
+    ofPopMatrix();*/
     
     
-	/*m_emitter.draw( 0, 0 );
+	m_emitter.draw( hand_pos_.x, hand_pos_.y );
 	
-	ofSetColor( 0, 0, 0 ); // 255 255 255
+	/*ofSetColor( 0, 0, 0 ); // 255 255 255
 	ofDrawBitmapString( "fps: " + ofToString( ofGetFrameRate(), 2 ), 20, 20 );
 	
 	ofDrawBitmapString("acc "+ ofToString(sphere_acc_.x) + " " + ofToString(sphere_acc_.y), 20, 40);
